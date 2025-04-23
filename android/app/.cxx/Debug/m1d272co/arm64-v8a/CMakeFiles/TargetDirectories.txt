@@ -1,0 +1,2 @@
+C:/Users/ABSD/f program/calculator_ios/android/app/.cxx/Debug/m1d272co/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/ABSD/f program/calculator_ios/android/app/.cxx/Debug/m1d272co/arm64-v8a/CMakeFiles/rebuild_cache.dir

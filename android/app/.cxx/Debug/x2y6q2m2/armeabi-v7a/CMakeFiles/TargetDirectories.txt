@@ -1,0 +1,2 @@
+C:/fprogram/calculator_ios/android/app/.cxx/Debug/x2y6q2m2/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/fprogram/calculator_ios/android/app/.cxx/Debug/x2y6q2m2/armeabi-v7a/CMakeFiles/rebuild_cache.dir
