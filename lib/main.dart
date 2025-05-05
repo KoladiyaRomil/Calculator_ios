@@ -31,7 +31,6 @@ class _calculatorstste extends State<calculator> {
       child: ElevatedButton(
           onPressed: (() {
             handleButtonPress(btntext);
-
           }),
           child: Text(
             btntext,
@@ -50,7 +49,6 @@ class _calculatorstste extends State<calculator> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 75, 88, 9),
       appBar: AppBar(
-        
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -61,19 +59,21 @@ class _calculatorstste extends State<calculator> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(
-                  padding: EdgeInsets.all(10),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  reverse: true,
                   child: Text(
                     text,
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white, fontSize: 100),
-                  )),
+                  ),
+                ),
+              ),
             ],
           ),
           Row(
@@ -140,7 +140,7 @@ class _calculatorstste extends State<calculator> {
             children: [
               ElevatedButton(
                 onPressed: (() {
-                handleButtonPress("0");
+                  handleButtonPress("0");
                 }),
                 child: Text(
                   '0',
@@ -177,26 +177,26 @@ class _calculatorstste extends State<calculator> {
   dynamic Operator = '';
   dynamic preperator = '';
 
- void handleButtonPress(btntext) {
-   if (btntext == 'AC' || btntext == 'C') {
-  if (hasInput) {
-    result = '';
-    finalresult = '0';
-    hasInput = false;
-  } else {
-    text = '0';
-    numone = 0;
-    numtwo = 0;
-    result = '';
-    finalresult = '0';
-    Operator = '';
-    preperator = '';
-  }
-}
- else if (btntext == '+' ||
+  void handleButtonPress(btntext) {
+    if (btntext == 'AC' || btntext == 'C') {
+      if (hasInput) {
+        result = '';
+        finalresult = '0';
+        hasInput = false;
+      } else {
+        text = '0';
+        numone = 0;
+        numtwo = 0;
+        result = '';
+        finalresult = '0';
+        Operator = '';
+        preperator = '';
+      }
+    } else if (btntext == '+' ||
         btntext == '-' ||
         btntext == '*' ||
         btntext == '/' ||
+        btntext == '%' ||
         btntext == '=') {
       if (numone == 0) {
         numone = double.parse(result);
@@ -227,16 +227,16 @@ class _calculatorstste extends State<calculator> {
       }
       finalresult = result;
     } else if (btntext == '⌫') {
-  if (result.isNotEmpty) {
-    result = result.substring(0, result.length - 1);
-    finalresult = result.isEmpty ? '0' : result;
-    hasInput = result.isNotEmpty;
-  }
-} else {
-  result = result + btntext;
-  finalresult = result;
-  hasInput = true;
-}
+      if (result.isNotEmpty) {
+        result = result.substring(0, result.length - 1);
+        finalresult = result.isEmpty ? '0' : result;
+        hasInput = result.isNotEmpty;
+      }
+    } else {
+      result = result + btntext;
+      finalresult = result;
+      hasInput = true;
+    }
 
     setState(() {
       text = finalresult;
